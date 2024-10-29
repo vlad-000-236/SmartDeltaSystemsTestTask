@@ -25,7 +25,7 @@ public class StudentController {
     }
 
     @PostMapping("/update/{studentId}")
-    public StudentDto updateStudent(@RequestParam Long studentId){
+    public StudentDto updateStudent(@RequestParam Long studentId, @RequestBody StudentDto studentDto){
         return null;
     }
 

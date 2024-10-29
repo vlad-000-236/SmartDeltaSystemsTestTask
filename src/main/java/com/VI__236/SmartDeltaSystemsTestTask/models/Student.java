@@ -1,5 +1,6 @@
 package com.VI__236.SmartDeltaSystemsTestTask.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Document (collection = "students")
 @Component
+@AllArgsConstructor
 public class Student {
 
     private long id;
