@@ -4,17 +4,19 @@ import com.VI__236.SmartDeltaSystemsTestTask.errorsheandlers.NotFoundException;
 import com.VI__236.SmartDeltaSystemsTestTask.models.Student;
 import com.VI__236.SmartDeltaSystemsTestTask.repositores.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+@Service
 public class StudentServiceImplementation implements StudentService{
 
-    @Autowired
     private Student student;
-
-    @Autowired
     private StudentRepository studentRepository;
 
+    @Autowired
     public StudentServiceImplementation(Student student, StudentRepository studentRepository){
         this.student = student;
         this.studentRepository = studentRepository;
@@ -25,9 +27,24 @@ public class StudentServiceImplementation implements StudentService{
     }
 
     @Override
-    public List<Student> getAllStudents(List<Student> students) {
-        return null;
+    public List<Student> getAllStudents() {
+        List<Student> studentsList;
+        studentsList = studentRepository.findAll();
+        return studentsList;
     }
+
+    /*
+
+    public List<Ad> getAllAds(Specification<Ad> spec) {
+        var ids = adRepo.findIds(spec);
+        if (ids.isEmpty()) {
+            return List.of();
+        }
+
+        return adRepo.findAllByIds(ids, Sort.unsorted());
+    }
+
+     */
 
     @Override
     public Student changeStudent(Student student) {

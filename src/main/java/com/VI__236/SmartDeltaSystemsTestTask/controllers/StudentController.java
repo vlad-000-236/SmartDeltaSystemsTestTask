@@ -1,7 +1,9 @@
 package com.VI__236.SmartDeltaSystemsTestTask.controllers;
 
 import com.VI__236.SmartDeltaSystemsTestTask.dto.StudentDto;
+import com.VI__236.SmartDeltaSystemsTestTask.mappers.StudentMapper;
 import com.VI__236.SmartDeltaSystemsTestTask.models.Student;
+import com.VI__236.SmartDeltaSystemsTestTask.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,15 +15,20 @@ import java.util.List;
 public class StudentController {
 
     private StudentDto studentDto;
+    private StudentService studentService;
+    private StudentMapper studentMapper;
 
     @Autowired
-    public StudentController(StudentDto studentDto){
+    public StudentController(StudentDto studentDto, StudentService studentService,
+                             StudentMapper studentMapper){
         this.studentDto = studentDto;
+        this.studentService = studentService;
+        this.studentMapper = studentMapper;
     }
 
     @GetMapping("/all")
     public List<StudentDto> getSudentsList(){
-        return null;
+        return studentMapper.studentsListModelToDtoList(studentService.getAllStudents());
     }
 
     @PostMapping("/update/{studentId}")
