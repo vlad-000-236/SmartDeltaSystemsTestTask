@@ -1,8 +1,6 @@
 package com.VI__236.SmartDeltaSystemsTestTask.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 @Data
@@ -11,15 +9,25 @@ import org.springframework.stereotype.Component;
 @NoArgsConstructor
 public class StudentDto {
 
-    private long id;
+    private String id;
 
+    @Setter
+    @Getter
     private String name;
 
+    @Setter
+    @Getter
     private String familyName;
 
+    @Setter
+    @Getter
     private String patronymic;
 
+    @Setter
+    @Getter
     private String groupNumb;
 
+    @Setter
+    @Getter
     private double grade;
 }

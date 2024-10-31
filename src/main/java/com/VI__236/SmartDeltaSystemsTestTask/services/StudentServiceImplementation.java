@@ -22,7 +22,7 @@ public class StudentServiceImplementation implements StudentService{
         this.studentRepository = studentRepository;
     }
 
-    private Student getStudentById(long id){
+    private Student getStudentById(String id){
         return studentRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 
@@ -50,7 +50,6 @@ public class StudentServiceImplementation implements StudentService{
     public Student changeStudent(Student student) {
         Student newVersionStudent = getStudentById(student.getId());
 
-        newVersionStudent.setId(student.getId());
         newVersionStudent.setName(student.getName());
         newVersionStudent.setPatronymic(student.getPatronymic());
         newVersionStudent.setFamilyName(student.getFamilyName());
@@ -77,7 +76,7 @@ public class StudentServiceImplementation implements StudentService{
     }
 
     @Override
-    public void deleteStudent(long id) {
+    public void deleteStudent(String id) {
         studentRepository.deleteById(id);
     }
 }

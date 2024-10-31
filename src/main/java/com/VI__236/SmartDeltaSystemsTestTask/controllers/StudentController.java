@@ -32,17 +32,17 @@ public class StudentController {
     }
 
     @PostMapping("/update/{studentId}")
-    public StudentDto updateStudent(@RequestParam Long studentId, @RequestBody StudentDto studentDto){
-        return null;
+    public StudentDto updateStudent(@RequestParam String studentId, @RequestBody StudentDto studentDto){
+        return studentMapper.studentModelToDto(studentService.createStudent(studentMapper.studentDtoToModel(studentDto)));
     }
 
     @PutMapping("/newStudent")
     public StudentDto createNewStudent(@RequestBody StudentDto studentDto){
-        return null;
+        return studentDto;
     }
 
     @DeleteMapping("/delete/{studentId}")
-    public void deleteStudent(@RequestParam Long studentId){
+    public void deleteStudent(@RequestParam String studentId){
     }
 
 }

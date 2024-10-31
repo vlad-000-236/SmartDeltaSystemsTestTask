@@ -12,5 +12,5 @@ public interface StudentService {
 
     public Student createStudent(Student student);
 
-    public void deleteStudent(long id);
+    public void deleteStudent(String id);
 }
